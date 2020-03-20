@@ -1,4 +1,4 @@
-git add *
+git add .
 echo "git add: Executado;"
 
 
