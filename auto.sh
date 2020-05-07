@@ -1,8 +1,11 @@
+git pull
+echo "git pull: Atualizando o repositório;"
+
 git add .
 echo "git add: Executado;"
 
 
-git commit -m "Update realizado por meio de script"
+git commit -m "Resolutions created in $(date +%F)."
 echo "commit: Executado;"
 
 git push
