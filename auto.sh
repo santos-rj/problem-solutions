@@ -5,7 +5,7 @@ git add .
 echo "git add: Executado;"
 
 
-git commit -m "Resolutions created in $(date +%F)."
+git commit -m "feat: resolutions created in $(date +%F)."
 echo "commit: Executado;"
 
 git push
