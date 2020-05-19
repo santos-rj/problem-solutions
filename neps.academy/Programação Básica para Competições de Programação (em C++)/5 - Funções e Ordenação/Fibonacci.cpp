@@ -4,29 +4,25 @@
 
 using namespace std;
 
-long long hanoi(long long n)
+int fib(int n)
 {
-    return 1 + (n == 1 ? 0 : 2 * hanoi(n - 1));
+
+    if (n < 2)
+    {
+        return 1;
+    }
+
+    return fib(n - 1) + fib(n - 2);
 }
 
 int main()
 {
 
-    long long n = 1, cont = 0;
+    int n;
 
-    while (n != 0)
-    {
-        cin >> n;
-        cont++;
-        if (n == 0)
-        {
-            break;
-        }
+    cin >> n;
 
-        cout << "Teste " << cont << '\n'
-             << hanoi(n) << '\n'
-             << endl;
-    }
+    cout << fib(n) << endl;
 
     return 0;
 }
