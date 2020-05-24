@@ -1,8 +1,25 @@
 #include <bits/stdc++.h>
 
-#define endl '\n'
-
 using namespace std;
+
+#define desync                        \
+    ios_base::sync_with_stdio(false); \
+    cin.tie(NULL);                    \
+    cout.tie(NULL)
+#define debug(x) cout << x << endl
+#define sz(x) (int)x.size()
+#define all(x) (x.begin(), x.end())
+#define rall(x) (x.rbegin(), x.rend())
+#define pb push_back
+#define endl '\n'
+#define ss sencond
+#define ff first
+#define forn(x) for (int i = 0; i < x; i++)
+
+typedef long long ll;
+typedef pair<int, int> pii;
+typedef vector<pii> vii;
+typedef vector<vii> matriz;
 
 bool ordenar(const pair<long long, string> a, const pair<long long, string> b)
 {
@@ -11,6 +28,7 @@ bool ordenar(const pair<long long, string> a, const pair<long long, string> b)
 
 int main()
 {
+    desync;
 
     int n, k;
     long long m;
@@ -24,7 +42,7 @@ int main()
         cin >> u >> m;
         if (rank.count(u))
         {
-            if (k <= m - rank[u].first)
+            if (m >= k + rank[u].first)
             {
                 rank[u].second += 25;
                 rank[u].first = m;
@@ -43,15 +61,13 @@ int main()
 
     sort(r.begin(), r.end(), ordenar);
 
-    r.resize(3);
-
     cout << "--Rank do Nepscord--" << endl;
     for (int i = 0; i < 3; i++)
     {
         int level = (r[i].first / 100) + 1;
-        cout << "#" << i + 1 << ". " << r[i].second;
+        cout << "#" << i + 1 << ".";
         if (r[i].second != "")
-            cout << " - Nivel " << level << endl;
+            cout << ' ' << r[i].second << " - Nivel " << level << endl;
     }
 
     cout << endl;
