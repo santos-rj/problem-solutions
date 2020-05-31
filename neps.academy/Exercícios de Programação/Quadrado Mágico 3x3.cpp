@@ -11,7 +11,7 @@ int main()
     int i, j, n;
     int s, p;
 
-    cin >> n;
+    n = 3;
 
     for (int i = 0; i < n; i++)
         for (int j = 0; j < n; j++)
@@ -51,7 +51,14 @@ int main()
     if (p != s)
         s = -1;
 
-    cout << s << endl;
+    if (s == -1)
+    {
+        cout << "NAO" << endl;
+    }
+    else
+    {
+        cout << "SIM" << endl;
+    }
 
     return 0;
 }
