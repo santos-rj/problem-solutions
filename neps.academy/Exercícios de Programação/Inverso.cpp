@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 #define endl '\n'
 #define desync                        \
@@ -15,7 +14,7 @@ int main()
 {
     desync;
 
-    int a, b;
+    int a;
     vector<int> v;
 
     for (int i = 0; i < 10; i++)
@@ -24,17 +23,9 @@ int main()
         v.pb(a);
     }
 
-    cin >> b;
-
-    sort(v.begin(), v.end());
-
-    if (binary_search(v.begin(), v.end(), b))
+    for (int i = 10 - 1; i >= 0; i--)
     {
-        cout << "SIM" << endl;
-    }
-    else
-    {
-        cout << "NAO" << endl;
+        cout << v[i] << endl;
     }
 
     return 0;
