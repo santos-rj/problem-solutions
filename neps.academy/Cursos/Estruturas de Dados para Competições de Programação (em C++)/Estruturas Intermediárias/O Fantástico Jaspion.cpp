@@ -12,6 +12,8 @@ using namespace std;
 int main()
 {
 
+    desync;
+
     long long t, m, n, ant;
     string inA, inB;
     map<string, string> dicio;
@@ -51,7 +53,7 @@ int main()
                     {
                         if (ant != 0)
                         {
-                            cout << " " << dicio[inB];
+                            cout << ' ' << dicio[inB];
                             ant++;
                         }
                         else
@@ -62,8 +64,16 @@ int main()
                     }
                     else
                     {
-                        cout << inB;
-                        ant++;
+                        if (ant != 0)
+                        {
+                            cout << ' ' << inB;
+                            ant++;
+                        }
+                        else
+                        {
+                            cout << inB;
+                            ant++;
+                        }
                     }
                     inB = "";
                     auth = 0;
@@ -76,19 +86,23 @@ int main()
                 {
                     if (ant != 0)
                     {
-                        cout << " " << dicio[inB];
-                        ant++;
+                        cout << ' ' << dicio[inB];
                     }
                     else
                     {
                         cout << dicio[inB];
-                        ant++;
                     }
                 }
                 else
                 {
-                    cout << inB;
-                    ant++;
+                    if (ant != 0)
+                    {
+                        cout << ' ' << inB;
+                    }
+                    else
+                    {
+                        cout << inB;
+                    }
                 }
             }
             cout << endl;
