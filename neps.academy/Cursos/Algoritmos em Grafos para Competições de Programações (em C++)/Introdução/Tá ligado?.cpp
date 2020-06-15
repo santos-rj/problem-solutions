@@ -37,10 +37,6 @@ int main()
             {
                 cout << 1 << endl;
             }
-            else if (ilhas[b].find(a) != ilhas[b].end())
-            {
-                cout << 1 << endl;
-            }
             else
             {
                 cout << 0 << endl;
