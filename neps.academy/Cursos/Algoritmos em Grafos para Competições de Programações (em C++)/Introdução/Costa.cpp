@@ -7,7 +7,7 @@
     cin.tie(NULL)
 #define endl '\n'
 #define INF 0x3f3f3f3f
-#define MAX 1005
+#define MAX 100
 #define pb push_back
 
 using namespace std;
