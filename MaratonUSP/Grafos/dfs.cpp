@@ -1,20 +1,28 @@
-#include <iostream>
-#include <vector>
-
-#define endl '\n'
-
+#include <bits/stdc++.h>
 using namespace std;
 
-vector<int> visited, pai, adj;
+#define MAXN 1000 //Número de vértices do grafo
+
+vector<int> adj[MAXN]; //vetor de adjacências
+
+int pai[MAXN]; //array que guarda os pais de cada nó
 
 void dfs(int v)
 {
-    visited[v] = 1;
-    for (int x : adj)
+    for (auto x : adj[v])
     {
-        if (visited[x])
-            continue;
-        pai[x] = v;
-        dfs(x);
+        if (pai[x] != -1)
+            continue; //se o nó já tem pai significa que já o visitei
+        pai[x] = v;   //seto o pai do nó para o atual
+        dfs(x);       //chama a função para o nó
     }
+}
+
+int main()
+{
+
+    for (int i = 0; i < MAXN; i++)
+        pai[i] = -1;  //inicializo o array de pais com -1 para todos
+    int root = 0;     //valor da raíz
+    pai[root] = root; //a raíz do meu grafo deve ser o próprio pai, para que não chame a dfs para ela
 }
