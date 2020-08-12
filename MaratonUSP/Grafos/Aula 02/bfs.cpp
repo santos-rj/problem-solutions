@@ -1,55 +1,32 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define V 100 // número máximo de vértices
+#define 1001000  MAXV
+#define pair<int,int> pii;
 
-int pai[V];
-bool visitado[V];   // vetor que indica os vértices visitados
-vector<int> adj[V]; // vetor de adjacências
+int n,distancia[MAXV];
+vector<pii> adj[MAXV];
 
-void dfsUtil(int v)
-{
-    visitado[v] = true; // marca como visitado
-    // for (int av : adj[v])  também é possivel usar essa sintaxe
-    for (int a = 0; a < adj[v].size(); a++)
-    {
-        int av = adj[v][a];
-        if (!visitado[av])
-        {
-            cout << av << " "; // imprime o vértice adjacente
-            dfsUtil(av);       // chama dfs para o vértice adjacente não visitado
-            pai[av] = v;       // salva o pai do vértice av
-        }
-    }
-}
+void BFS(int fonte){
+	for(int i=0;i<MAXV;i++)//Marca os vértices como não visitados
+		distancia[i]=-1;
 
-void dfs(int r, int v)
-{
-    for (int i = 0; i < v; i++)
-    {
-        visitado[i] = false;
-        pai[i] = -1;
-    }
-    cout << r << " ";
-    dfsUtil(r);
-    cout << "\n";
-}
+	queue<int> fila;
+	fila.push(fonte);//Insere a fonte na fila
+	distancia[fonte]=0;//Iniciando a distancia da fonte como zero
 
-int main()
-{
-    int v, a;
-    cin >> v >> a;
-    for (int i = 0; i < a; i++)
-    {
-        int x, y;
-        cin >> x >> y;
-        adj[x].push_back(y);
-        adj[y].push_back(x);
-    }
-    dfs(0, v);
-    for (int i = 0; i < v; i++)
-    {
-        cout << "pai de " << i << " = " << pai[i] << "\n";
-    }
-    return 0;
+	int aux;
+	while(!fila.empty()){
+		aux=fila.front();//Pega o primeiro elemento da fila
+		fila.pop();//Apaga o primeiro elemento da fila
+
+		for(auto viz:adj[aux]){
+			if(distancia[viz]!=-1)//Se foi visitado, não adiciona na fila
+				continue;
+
+			distancia[viz]=distancia[aux]+1;
+			fila.insert(viz);
+		}
+	}
+
 }
