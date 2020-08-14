@@ -1,7 +1,7 @@
 git pull
 echo "git pull: Atualizando o repositório;"
 
-git add .
+git add *
 echo "git add: Executado;"
 
 
