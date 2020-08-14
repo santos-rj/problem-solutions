@@ -1,6 +1,12 @@
-echo "Fazendo git add"
-git add *
-echo "Commitando"
+git pull
+echo "git pull: Atualizando o repositório;"
+
+git add .
+echo "git add: Executado;"
+
+
 git commit -m "feat: resolutions created in $(date +%F)."
-echo "Fazendo push"
+echo "commit: Executado;"
+
 git push
+echo "git push: Executado;"
