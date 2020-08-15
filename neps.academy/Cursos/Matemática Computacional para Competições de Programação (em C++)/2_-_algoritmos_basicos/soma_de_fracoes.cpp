@@ -15,34 +15,36 @@ typedef long long ll;
 
 using namespace std;
 
-bool e_primo(ll x)
+ll gcd(ll a, ll b)
 {
-    if (x == 1)
-        return 0;
-    for (ll i = 2; i * i <= x; ++i)
+    if (b == 0)
     {
-        if (x % i == 0)
-        {
-            return 0;
-        }
+        return a;
     }
+    else
+    {
+        return gcd(b, a % b);
+    }
+}
 
-    return 1;
+ll lmc(ll a, ll b)
+{
+    return a * b / gcd(a, b);
 }
 
 void solve()
 {
-    ll in;
-    cin >> in;
+    ll a, b, c, d, mmc = 0, soma = 0, mdc = 0;
 
-    if (e_primo(in))
-    {
-        cout << "S\n";
-    }
-    else
-    {
-        cout << "N\n";
-    }
+    cin >> a >> b >> c >> d;
+
+    mmc = lmc(b, d);
+
+    soma = (((mmc / b) * a) + ((mmc / d) * c));
+
+    mdc = gcd(soma, mmc);
+
+    cout << soma / mdc << ' ' << mmc / mdc << endl;
 }
 
 int main()

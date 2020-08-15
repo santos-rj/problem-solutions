@@ -6,7 +6,7 @@
     cin.tie(0)
 #define endl "\n"
 #define pb push_back
-#define MAX 10
+#define MAX 12000005
 #define MAXV 1010
 #define ff first
 #define ss second
@@ -15,34 +15,35 @@ typedef long long ll;
 
 using namespace std;
 
-bool e_primo(ll x)
+bool composto[MAX];
+vector<ll> primos;
+
+void crivo(int n)
 {
-    if (x == 1)
-        return 0;
-    for (ll i = 2; i * i <= x; ++i)
+    composto[1] = 1;
+    for (int i = 1; i <= n; ++i)
     {
-        if (x % i == 0)
+        if (!composto[i])
         {
-            return 0;
+            primos.pb(i);
+            for (int j = 2; j * i <= n; ++j)
+            {
+                composto[j * i] = 1;
+            }
         }
     }
 
-    return 1;
+    return;
 }
 
 void solve()
 {
-    ll in;
-    cin >> in;
+    ll n, cont = 0, aux = 0;
+    cin >> n;
 
-    if (e_primo(in))
-    {
-        cout << "S\n";
-    }
-    else
-    {
-        cout << "N\n";
-    }
+    crivo(MAX);
+
+    cout << primos[n - 1] << endl;
 }
 
 int main()

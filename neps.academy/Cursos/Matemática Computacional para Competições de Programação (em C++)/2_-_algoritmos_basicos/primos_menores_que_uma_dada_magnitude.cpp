@@ -17,32 +17,32 @@ using namespace std;
 
 bool e_primo(ll x)
 {
-    if (x == 1)
+    if (x == 1 || x == 4)
         return 0;
-    for (ll i = 2; i * i <= x; ++i)
+    for (ll i = 2; i * i <= x; i++)
     {
         if (x % i == 0)
         {
             return 0;
         }
     }
-
     return 1;
 }
 
 void solve()
 {
-    ll in;
-    cin >> in;
+    ll x;
+    cin >> x;
 
-    if (e_primo(in))
+    for (ll j = 1; j <= x; ++j)
     {
-        cout << "S\n";
+        if (e_primo(j))
+        {
+            cout << j << ' ';
+        }
     }
-    else
-    {
-        cout << "N\n";
-    }
+
+    cout << endl;
 }
 
 int main()

@@ -15,34 +15,34 @@ typedef long long ll;
 
 using namespace std;
 
-bool e_primo(ll x)
-{
-    if (x == 1)
-        return 0;
-    for (ll i = 2; i * i <= x; ++i)
-    {
-        if (x % i == 0)
-        {
-            return 0;
-        }
-    }
-
-    return 1;
-}
-
 void solve()
 {
-    ll in;
-    cin >> in;
+    ll p, d1, d2;
+    cin >> p >> d1 >> d2;
 
-    if (e_primo(in))
+    if (p == 0)
     {
-        cout << "S\n";
+        if ((d1 + d2) % 2 == 0)
+        {
+            cout << 0;
+        }
+        else
+        {
+            cout << 1;
+        }
     }
     else
     {
-        cout << "N\n";
+        if ((d1 + d2) % 2 == 0)
+        {
+            cout << 1;
+        }
+        else
+        {
+            cout << 0;
+        }
     }
+    cout << endl;
 }
 
 int main()

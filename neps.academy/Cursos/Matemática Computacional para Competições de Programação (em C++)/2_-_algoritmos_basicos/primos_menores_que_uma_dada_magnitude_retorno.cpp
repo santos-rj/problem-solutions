@@ -15,19 +15,23 @@ typedef long long ll;
 
 using namespace std;
 
-bool e_primo(ll x)
+bool composto[10000010];
+
+void crivo(ll n)
 {
-    if (x == 1)
-        return 0;
-    for (ll i = 2; i * i <= x; ++i)
+    composto[1] = 1;
+    for (int i = 2; i <= n; ++i)
     {
-        if (x % i == 0)
+        if (!composto[i])
         {
-            return 0;
+            for (int j = 2; j * i <= n; ++j)
+            {
+                composto[j * i] = 1;
+            }
         }
     }
 
-    return 1;
+    return;
 }
 
 void solve()
@@ -35,14 +39,17 @@ void solve()
     ll in;
     cin >> in;
 
-    if (e_primo(in))
+    crivo(in);
+
+    for (int i = 1; i <= in; ++i)
     {
-        cout << "S\n";
+        if (composto[i] == 0)
+        {
+            cout << i << ' ';
+        }
     }
-    else
-    {
-        cout << "N\n";
-    }
+
+    cout << endl;
 }
 
 int main()
