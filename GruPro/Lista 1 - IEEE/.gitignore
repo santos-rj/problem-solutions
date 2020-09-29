@@ -1,0 +1,8 @@
+# Ignore tudo
+*
+
+# Excluindo arquivos .cpp
+!*.cpp
+
+# Excluindo o .gitignore
+!.gitignore

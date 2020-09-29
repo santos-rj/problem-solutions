@@ -23,7 +23,7 @@ void solve(){
 
 	cin >> p >> c;
 
-	if((p <= 7000) && (c == 'V')){
+	if((p <= 7000) && (c == 'V' || c == 'v')){
 		cout << "Sim, o desejo pode ser realizado!\n";	
 	}else{
 		cout << "Nao, o desejo nao pode ser realizado :(\n";
@@ -36,7 +36,7 @@ int main(){
 
 	ll t = 1;
 
-	cin >> t;
+	// cin >> t;
 
 	while(t--){
 		solve();
